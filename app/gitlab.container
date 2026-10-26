@@ -1,0 +1,16 @@
+[Container]
+AutoUpdate=registry
+ContainerName=gitlab
+HostName=gitlab.%H
+EnvironmentFile=env
+Image=docker.io/gitlab/gitlab-ce:latest
+PublishPort=0.0.0.0:8929:80
+PublishPort=0.0.0.0:2424:2424
+ShmSize=256m
+Volume=%E/%N:/etc/gitlab:Z
+Volume=gitlab-logs.volume:/var/log/gitlab
+Volume=gitlab-data:/var/opt/gitlab
+
+
+[Service]
+ConfigurationDirectory=%N
